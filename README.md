@@ -22,7 +22,10 @@ This project demonstrates how to use image picking and camera functionality in a
 ## Getting Started
 
 1. Clone the repository
-2. Install dependencies:
+2. ```
+   cd expo-image-picker-demo
+   ```
+3. Install dependencies:
    ```
    npm install
    ```
@@ -30,7 +33,7 @@ This project demonstrates how to use image picking and camera functionality in a
    ```
    yarn install
    ```
-3. Start the Expo development server:
+4. Start the Expo development server:
    ```
    npx expo start
    ```
@@ -45,5 +48,5 @@ This project demonstrates how to use image picking and camera functionality in a
 ## Project Structure
 
 - `app/(tabs)/index.tsx`: Main component containing the image picker and display logic
-- `app/_layout.tsx`: Root layout component (if applicable)
+- `app/_layout.tsx`: Root layout component
 - Other configuration files (e.g., `app.json`, `babel.config.js`, etc.)
