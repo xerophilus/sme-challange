@@ -1,52 +1,98 @@
-# Expo Image Picker Demo
+# 🚀 The One App - Proof of Concept (PoC)
 
-This project demonstrates how to use image picking and camera functionality in a React Native app using Expo. It features a simple image gallery with a carousel display and options to pick images from the device or take new photos using the camera.
+## 📌 Overview
+**The One App** is a **modular, dynamically-loaded employee app** designed to **host and load micro-apps** from AWS. This proof of concept (PoC) demonstrates how an **Expo-based Employee App** can dynamically fetch and execute **AWS-hosted micro-apps** to enable seamless updates without full app redeployment.
 
-## Features
+## 🎯 Goals
+- ✅ **Create a central Employee App (`the-one-app`)** that loads micro-apps dynamically.
+- ✅ **Host micro-apps in AWS S3 & serve via CloudFront** for performance and scalability.
+- ✅ **Support both single-page and multi-page micro-apps**.
+- ✅ **Simulate authentication by passing user data** to micro-apps.
+- ✅ **Ensure caching and offline functionality** for improved performance.
+- ✅ **Expand to multiple micro-apps dynamically**.
 
-- Pick multiple images from the device gallery
-- Take photos using the device camera
-- Display selected images in a carousel
-- Responsive design that adapts to different screen sizes
-- Proper handling of camera permissions
+---
 
-## Technologies Used
+## 📂 Folder Structure
+```
+/bpitts-innovation-week
+  ├── /the-one-app      # Expo-based Employee App
+  ├── /micro-apps       # Contains both single-page & multi-page micro-apps
+  ├── README.md         # Project documentation (this file)
+```
 
-- React Native
-- Expo
-- expo-image-picker: For accessing the device's image gallery and camera
-- react-native-reanimated-carousel: For displaying images in a carousel
-- react-native-safe-area-context: For handling safe areas on different devices
-- @expo/vector-icons: For using Ionicons in the UI
+---
 
-## Getting Started
+## 🚀 Features Checklist
 
-1. Clone the repository
-2. ```
-   cd expo-image-picker-demo
-   ```
-3. Install dependencies:
-   ```
-   npm install
-   ```
-   or
-   ```
-   yarn install
-   ```
-4. Start the Expo development server:
-   ```
-   npx expo start
-   ```
+### **✅ Core App (The One App - Expo)**
+- [ ] Create **React Native Expo app** (`the-one-app`).
+- [ ] Implement **navigation and basic UI**.
+- [ ] Fetch and **dynamically load micro-apps** from AWS.
+- [ ] Simulate **authentication context** (pass `username`, `role`).
+- [ ] Implement **error handling & fallback UI**.
 
-## Usage
+### **✅ Micro-App Hosting & AWS Setup**
+- [ ] **AWS S3 setup** for micro-app storage.
+- [ ] **CloudFront distribution** for faster delivery.
+- [ ] Ensure **public file access** (or use signed URLs for security).
+- [ ] Automate **deployment to AWS** using CLI.
 
-- Tap "Pick Images" to select multiple images from your device's gallery
-- Tap "Take Photo" to open the camera and take a new photo
-- Selected images will be displayed in a carousel at the top of the screen
-- If no images are selected, a placeholder will be shown
+### **✅ Micro-Apps**
+- [ ] Create a **single-page micro-app** (`micro-app.js`).
+- [ ] Create a **multi-page micro-app** with `react-navigation`.
+- [ ] Ensure **micro-apps work independently** in a browser.
+- [ ] Test dynamic loading from CloudFront.
 
-## Project Structure
+### **✅ Additional Enhancements**
+- [ ] Implement **caching for micro-apps** (AsyncStorage/local storage).
+- [ ] Fetch **micro-app list dynamically from an API**.
+- [ ] Enable **secure access** (Pre-signed URLs / Auth Integration).
+- [ ] Optimize **bundle size and load times**.
 
-- `app/(tabs)/index.tsx`: Main component containing the image picker and display logic
-- `app/_layout.tsx`: Root layout component
-- Other configuration files (e.g., `app.json`, `babel.config.js`, etc.)
+---
+
+## 📖 Setup Instructions
+
+### **1️⃣ Set Up AWS S3 & CloudFront**
+1. **Create an S3 Bucket** & upload `micro-app.js`.
+2. **Set permissions**: Make files public or use CloudFront OAC.
+3. **Create a CloudFront distribution** & copy the distribution URL.
+
+### **2️⃣ Run the Employee App**
+```sh
+cd the-one-app
+npx expo start
+```
+- Open the app and tap **"Load Micro-App"**.
+
+### **3️⃣ Test Micro-App Loading**
+```sh
+curl https://your-cloudfront-url.com/micro-app.js
+```
+- Verify that the file is served correctly.
+
+---
+
+## 🛠️ Debugging Tips
+- **Access Denied?** → Check S3 permissions.
+- **Micro-app not loading?** → Verify the CloudFront URL.
+- **Slow performance?** → Enable CloudFront caching.
+
+---
+
+## 📅 Roadmap
+- 🔹 Integrate **MSAL/Azure AD authentication** (future work).
+- 🔹 Implement **role-based access for micro-apps**.
+- 🔹 Deploy a **CI/CD pipeline for automated updates**.
+
+---
+
+## ✨ Contributors
+- **@bpitts** 🚀
+
+This project was built for **Innovation Week** to explore modular architectures for enterprise apps.
+
+---
+
+📢 **Next Steps:** Test dynamic micro-app loading & expand support for multiple micro-apps!
